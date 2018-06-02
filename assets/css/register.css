@@ -103,3 +103,11 @@ body {
 .hasAccountText{
 	text-align: center;
 }
+
+#hideLogin:hover, #hideSignup:hover{
+	cursor: pointer;
+}
+
+#loginForm, #signupForm {
+	display: none;
+}

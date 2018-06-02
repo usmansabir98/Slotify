@@ -19,6 +19,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="assets/css/register.css">
 	<title>Welcome to Slotify!</title>
+
 </head>
 <body>
 	<div id="background">
@@ -104,7 +105,22 @@
 			</div>
 		</div>	
 	</div>
-	
 
+	<?php 
+		if(isset($_POST['registerButton'])){
+			echo "<script>
+							document.querySelector('#RegisterForm').style.display = 'block';
+							document.querySelector('#loginForm').style.display = 'none';
+						</script>";
+		}
+		else{
+			echo "<script>
+							document.querySelector('#RegisterForm').style.display = 'none';
+							document.querySelector('#loginForm').style.display = 'block';
+						</script>";
+		}
+	?>
+	<script type="text/javascript" src="assets/js/register.js"></script>
+	
 </body>
 </html>
