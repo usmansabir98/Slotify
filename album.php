@@ -1,4 +1,5 @@
-<?php include("includes/header.php"); 
+<?php include("includes/includedFiles.php"); 
+ 
 	
 	if(isset($_GET['id'])){
 		$albumId = $_GET['id'];
@@ -67,13 +68,10 @@
 		?>
 
 		<script type="text/javascript">
-			const tempSongIds = '<?php echo json_encode($songIdArray); ?>';
+			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
 			tempPlaylist = JSON.parse(tempSongIds);
 		</script>
 
 
 	</ul>
 </div>
-
-
-<?php include("includes/footer.php"); ?>

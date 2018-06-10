@@ -224,16 +224,16 @@
 				xhr3.send(`albumId=${track.album}`);
 
 				audioElement.setTrack(track);
-				playSong();
+				if(play){
+					playSong();
+				}
 
 			}
 		}
 
 		xhr.send(`songId=${trackId}`);
 
-		if(play){
-			audioElement.play();
-		}
+		
 	}
 
 	const playBtn = document.querySelector('.controlButton.play');
