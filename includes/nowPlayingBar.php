@@ -15,17 +15,17 @@
 		<div id="nowPlayingLeft">
 			<div class="content">
 				<span class="albumLink">
-					<img class="albumArtwork" src="https://lh3.googleusercontent.com/VT-PqxMMsA2wPy7kzmuKGDIzaA3AGuXKExqnfOfwTEy5AvLIMTranbfNGheRr457RD4=s180">
+					<img role="link" tabindex="0" class="albumArtwork" src="">
 				</span>
 
 				<div class="trackInfo">
 
 					<span class="trackName">
-						<span>Happy Birthday</span>
+						<span role="link" tabindex="0"></span>
 					</span>
 
 					<span class="artistName">
-						<span>Reece Kenney</span>
+						<span role="link" tabindex="0"></span>
 					</span>
 
 				</div>
@@ -203,7 +203,11 @@
 				xhr2.onload = function(){
 					if(this.status === 200){
 						const artist = JSON.parse(this.responseText);
-						document.querySelector('.artistName span').textContent = artist.name;
+						document.querySelector('.trackInfo .artistName span').textContent = artist.name;
+						document.querySelector('.trackInfo .artistName span')
+							.addEventListener('click', function(){
+								openPage(`artist.php?id=${artist.id}`);
+							});
 
 					}
 				}
@@ -216,8 +220,13 @@
 				xhr3.onload = function(){
 					if(this.status === 200){
 						const album = JSON.parse(this.responseText);
-						document.querySelector('.albumLink img').src = album.artworkPath;
-
+						document.querySelector('.content .albumLink img').src = album.artworkPath;
+						document.querySelector('.content .albumLink img').addEventListener('click', function(){
+							openPage(`album.php?id=${album.id}`);
+						});
+						document.querySelector('.trackInfo .trackName span').addEventListener('click', function(){
+							openPage(`album.php?id=${album.id}`);
+						});
 					}
 				}
 

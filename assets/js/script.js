@@ -42,6 +42,11 @@ function updateVolumeProgressBar(audio) {
 	document.querySelector(".volumeBar .progress").style.width = volume + "%";
 }
 
+function playFirstSong(){
+	setTrack(tempPlaylist[0], tempPlaylist, true);
+}
+
+
 class Audio{
 	constructor(){
 		this.currentlyPlaying = 0;
